@@ -242,4 +242,40 @@ public class BST {
         return find;
     }
     
+    
+    static void SearchinOrderTraverse(Node parent,String s){
+        if(parent != null){
+            SearchinOrderTraverse(parent.left,s);
+            if(parent.title.contains(s))
+             //   parentFrame.FillTable(parent.title,parent.AuthorFName,parent.AuthorLName,parent.isbn,parent.count);
+            SearchinOrderTraverse(parent.right,s);
+        }            
+    }
+     
+     static boolean delete = false;
+     static boolean DeleteByISBN(Node parent,long s){
+        if(parent != null){
+            DeleteByISBN(parent.left,s);
+            if(parent.isbn == s)
+            {
+               DeleteByName(parent.title,root);
+               delete = true;
+            }
+            DeleteByISBN(parent.right,s);
+        }
+        return delete;
+     }
+	 
+	 static Node SearchByISBN(Node parent,long s){
+        if(parent != null){
+            SearchByISBN(parent.left,s);
+            if(parent.isbn == s)
+            {
+                find = parent;
+            }
+            SearchByISBN(parent.right,s);
+        }
+        return find;
+    }
+         
 }
