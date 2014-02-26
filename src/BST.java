@@ -119,5 +119,100 @@ public class BST {
             }
         }
     }
+        
+    static boolean DeleteByName(String s,Node n) 
+    {
+        if(root == null){
+            //JOptionPane.showMessageDialog(parentFrame,"No items to delete");
+            return false;
+        }
+        Node d = n;
+        Node parent = n;
+        boolean isLeft = true;
+        while(!s.equals(d.title))
+        {
+            parent = d;
+            if(s.compareTo(d.title) < 0)
+            {
+                d = d.left;
+                isLeft = true;
+            }
+            else
+            {
+                d = d.right;
+                isLeft = false;
+            }
+            if(d == null)
+            {
+                return false;
+            } 
+        }
+        if(d.count > 1)
+        {
+            d.count--;
+        }
+        else
+        {
+            if(d.left == null && d.right == null)
+            {
+                if(d == root)
+                    root = null;
+                else if (isLeft)
+                    parent.left = null;
+                else
+                    parent.right = null;
+            }
+            else if (d.left == null)
+            {
+                if(d == root)
+                    root = d.right;
+                else if(isLeft)
+                    parent.left = d.right;
+                else
+                    parent.right = d.right;
+               
+            }
+            else if (d.right == null)
+            {
+                if(d == root)
+                    root = d.left;
+                else if(isLeft)
+                    parent.left = d.left;
+                else
+                    parent.right = d.left;
+            }
+            else
+            {
+                Node replacer = FindReplacer(d);
+                if(d == root)
+                    root = replacer;
+                else if(isLeft)
+                    parent.left = replacer;
+                else
+                    parent.right = replacer;
+                replacer.left = d.left;           
+            }
+        }
+        return true;
+    }
+
+    static Node FindReplacer(Node del) 
+    {
+        Node repParent = del;
+        Node current = del;
+        Node replacer = del;
+        while(current != null)
+        {
+            repParent = replacer;
+            replacer = current;
+            current = replacer.right;
+        }
+        if(replacer.left != null)
+        {
+            repParent.right = replacer.left;
+            replacer.right = del.right;
+        }
+        return replacer;
+    }    
     
 }
