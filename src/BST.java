@@ -71,5 +71,53 @@ public class BST {
         display(n.right);
 
     }
+        
+        static void LoadBooks(String t,String af,String al,long b, Node n) {
+        if (root == null)
+        {
+            root = new Node();
+            root.isbn = b;
+            root.title = t;
+            root.AuthorFName = af;
+            root.AuthorLName = al;
+        }
+        else
+        {
+            if (t.compareTo(n.title) < 0)
+            {
+                if (n.left != null) 
+                {
+                    LoadBooks(t,af,al,b, n.left);
+                } else 
+                {
+                    Node temp = new Node();
+                    temp.isbn = b;
+                    temp.title = t;
+                    temp.AuthorFName = af;
+                    temp.AuthorLName = al;
+                    n.left = temp;
+                }
+            } 
+            else if (t.compareTo(n.title) > 0) 
+            {
+                if (n.right != null) 
+                {
+                    LoadBooks(t,af,al,b, n.right);
+                } else
+                {
+                    Node temp = new Node();
+                    temp.isbn = b;
+                    temp.title = t;
+                    temp.AuthorFName = af;
+                    temp.AuthorLName = al;
+                    n.right = temp;
+                }
+            } 
+            else if (t.equals(n.title)) 
+            {
+                n.count++;
+            }
+        }
+    }
     
 }
