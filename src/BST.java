@@ -119,5 +119,32 @@ public class BST {
             }
         }
     }
+ 
+    static Node SearchByName(String s,Node n)
+    {
+        if(s.equals(n.title))
+        {
+            find = n;
+        }
+        else if(s.compareTo(n.title) < 0)
+        {
+            if(n.left != null)
+            {
+                SearchByName(s,n.left);
+            }
+            else
+                find = null;
+        }
+        else
+        {
+            if(n.right != null)
+            {
+                SearchByName(s,n.right);
+            }
+            else
+                find = null;
+        }
+        return find;
+    }
     
 }
