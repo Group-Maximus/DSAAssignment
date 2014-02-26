@@ -1,5 +1,3 @@
-
-import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -291,8 +289,6 @@ public class BookForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        SyntheticaBlackEyeLookAndFeel x = new SyntheticaBlackEyeLookAndFeel();
-        UIManager.setLookAndFeel(x);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
