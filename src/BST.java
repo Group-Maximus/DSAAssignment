@@ -124,7 +124,6 @@ public class BST {
     static boolean DeleteByName(String s,Node n) 
     {
         if(root == null){
-            //JOptionPane.showMessageDialog(parentFrame,"No items to delete");
             return false;
         }
         Node d = n;

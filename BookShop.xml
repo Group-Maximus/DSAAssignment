@@ -1,168 +1,168 @@
 <?xml version="1.0"?>
 <Library>
 	<Book>
-		<Isbn>1234567890123</Isbn>
+		<Isbn>8956</Isbn>
 		<Title>PHP and MySQL Web Development</Title>
 		<Fname>Luke</Fname>
 		<Lname>Welling</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>4563789538906</Isbn>
+		<Isbn>7858</Isbn>
 		<Title>Cake PHP</Title>
 		<Fname>Paul</Fname>
 		<Lname>Whitehead</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>1234325676548</Isbn>
+		<Isbn>1025</Isbn>
 		<Title>PHP 4 Bible</Title>
 		<Fname>Tim</Fname>
 		<Lname>Converse</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>9678546879054</Isbn>
+		<Isbn>3685</Isbn>
 		<Title>PHP Functions Essential Reference</Title>
 		<Fname>Torben</Fname>
 		<Lname>Wilson</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>8764808532098</Isbn>
+		<Isbn>4502</Isbn>
 		<Title>PHP 4: A Beginner's Guide</Title>
 		<Fname>Bill</Fname>
 		<Lname>McCarty</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>2445677658975</Isbn>
+		<Isbn>1173</Isbn>
 		<Title>Beginning PHP 5.3</Title>
 		<Fname>Matt</Fname>
 		<Lname>Doyle</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>2154376896540</Isbn>
+		<Isbn>3361</Isbn>
 		<Title>Wicked Cool PHP: Real-World Scripts</Title>
 		<Fname>William</Fname>
 		<Lname>Steinmetz</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>7649870324567</Isbn>
+		<Isbn>4487</Isbn>
 		<Title>PHP 6 and MySQL 5 for Dynamic Web</Title>
 		<Fname>Larry</Fname>
 		<Lname>Ullman</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>6587449870654</Isbn>
+		<Isbn>5628</Isbn>
 		<Title>Sams Teach Yourself PHP, MySQL</Title>
 		<Fname>Julie</Fname>
 		<Lname>eloni</Lname>
 		<Copy>1</Copy>
 	</Book>
 	<Book>
-		<Isbn>7834567890980</Isbn>
+		<Isbn>7046</Isbn>
 		<Title>The Java Language Specification</Title>
 		<Fname>Gilad</Fname>
 		<Lname>Bracha</Lname>
 		<Copy>1</Copy>
 	</Book>	
         <Book>
-		<Isbn>9034567890981</Isbn>
+		<Isbn>6932</Isbn>
 		<Title>Java Phrasebook</Title>
 		<Fname>Timothy</Fname>
 		<Lname>Fisher</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>4234567890982</Isbn>
+		<Isbn>7486</Isbn>
 		<Title>JUnit recipes</Title>
 		<Fname>Bernard</Fname>
 		<Lname>Rainsberger</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>5334567890983</Isbn>
+		<Isbn>2951</Isbn>
 		<Title>Problem Solving with Java</Title>
 		<Fname>Elliot</Fname>
 		<Lname>Koffman</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>8934567890984</Isbn>
+		<Isbn>8455</Isbn>
 		<Title>JavaScript Pocket Reference</Title>
 		<Fname>David</Fname>
 		<Lname>Flanagan</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>3134567890985</Isbn>
+		<Isbn>4693</Isbn>
 		<Title>Java examples in a nutshell</Title>
 		<Fname>David</Fname>
 		<Lname>Flanagan</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>7534567890986</Isbn>
+		<Isbn>7068</Isbn>
 		<Title>Data structure design using Java</Title>
 		<Fname>Elliot</Fname>
 		<Lname>Koffman</Lname>
 		<Copy>1</Copy>
 	</Book>
          <Book>
-		<Isbn>5934567890987</Isbn>
+		<Isbn>4293</Isbn>
 		<Title>JavaScript Examples Bible</Title>
 		<Fname>Danny</Fname>
 		<Lname>Goodman</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>6834567890988</Isbn>
+		<Isbn>3134</Isbn>
 		<Title>Java in a nutshell</Title>
 		<Fname>David</Fname>
 		<Lname>Flanagan</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>7334567890989</Isbn>
+		<Isbn>2250</Isbn>
 		<Title>The Religion of Java</Title>
 		<Fname>Clifford</Fname>
 		<Lname>Geertz</Lname>
 		<Copy>1</Copy>
 	</Book>
         <Book>
-		<Isbn>9934567890990</Isbn>
+		<Isbn>7444</Isbn>
 		<Title>Java Power Reference</Title>
 		<Fname>David</Fname>
 		<Lname>Flanagan</Lname>
 		<Copy>1</Copy>
 	</Book>	
         <Book>
-		<Isbn>7134567890991</Isbn>
+		<Isbn>8624</Isbn>
 		<Title>Thinking in Java</Title>
 		<Fname>Bruce</Fname>
 		<Lname>Eckel</Lname>
 		<Copy>1</Copy>
 	</Book>	
         <Book>
-		<Isbn>2434567890992</Isbn>
+		<Isbn>6996</Isbn>
 		<Title>Programming Perl</Title>
 		<Fname>Randal</Fname>
 		<Lname>Achwartz</Lname>
 		<Copy>1</Copy>
 	</Book>	
         <Book>
-		<Isbn>7534567890993</Isbn>
+		<Isbn>4571</Isbn>
 		<Title>Server Scripts With Visual Javascript</Title>
 		<Fname>Dan</Fname>
 		<Lname>Rahmel</Lname>
 		<Copy>1</Copy>
 	</Book>	
         <Book>
-		<Isbn>5534567890994</Isbn>
+		<Isbn>1394</Isbn>
 		<Title>Reality Macromedia ColdFusion MX</Title>
 		<Fname>Ben</Fname>
 		<Lname>Forta</Lname>

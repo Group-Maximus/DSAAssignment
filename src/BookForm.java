@@ -7,9 +7,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -39,8 +42,30 @@ public class BookForm extends javax.swing.JFrame {
         this.setExtendedState( this.getExtendedState()|BookForm.MAXIMIZED_BOTH );
         this.setTitle("Book Shop");
         BST.parentFrame = this;
+        SearchListner();       
     }
+    
+    public void SearchListner()
+    {
+        txtKey.getDocument().addDocumentListener(new DocumentListener() {
+        public void removeUpdate(DocumentEvent e) {
+            DOWork();
+        }
 
+        public void insertUpdate(DocumentEvent e) {
+            DOWork();
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+            DOWork();
+        }
+        
+        public void DOWork()
+                {
+                    SearchByKeyWord();
+                }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -688,7 +713,7 @@ public class BookForm extends javax.swing.JFrame {
             dm.removeRow(0);
         }
         if(BST.root == null)
-            JOptionPane.showMessageDialog(this,"Tree is empty");
+            JOptionPane.showMessageDialog(this,"Tree is empty","",JOptionPane.WARNING_MESSAGE);
         else
             BST.display(BST.root);
     }//GEN-LAST:event_btnShowActionPerformed
@@ -724,13 +749,14 @@ public class BookForm extends javax.swing.JFrame {
                         BST.LoadBooks(t,fn,ln,x,BST.root);
 		}
         }
-        JOptionPane.showMessageDialog(this,"All books were successfuly added");
+        JOptionPane.showMessageDialog(this,"All books were successfuly added","",JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnLoadBooksActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        BST.root = null;
         DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
         while(dm.getRowCount() > 0)
         {
@@ -749,12 +775,21 @@ public class BookForm extends javax.swing.JFrame {
             }       
             if(radioDISBN.isSelected())
             {
-               String b = txtDelete.getText();
-                BST.delete = false;
-                BST.DeleteByISBN(BST.root,Long.parseLong(b));
-                if(!BST.delete)
-                    JOptionPane.showMessageDialog(this,"ISBN \"" +b+ "\"" +" not found");
-                BST.display(BST.root);
+                String b = txtDelete.getText();
+                if(b.matches(".*\\d.*")){
+                    BST.delete = false;
+                    BST.DeleteByISBN(BST.root,Long.parseLong(b));
+                    if(!BST.delete)
+                        JOptionPane.showMessageDialog(this,"ISBN \"" +b+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(this,"Book was successfuly deleted","",JOptionPane.INFORMATION_MESSAGE);
+                    BST.display(BST.root);
+                } 
+                else
+                {
+                    BST.display(BST.root);
+                    JOptionPane.showMessageDialog(this,"Invalid ISBN number","Error",JOptionPane.ERROR_MESSAGE);
+                }
             }
             else
             {
@@ -762,7 +797,9 @@ public class BookForm extends javax.swing.JFrame {
                 String t = txtDelete.getText();
                 boolean flag = BST.DeleteByName(t,BST.root);
                 if(!flag)
-                    JOptionPane.showMessageDialog(this,"Book \"" +t+ "\"" +" not found");
+                    JOptionPane.showMessageDialog(this,"Book \"" +t+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(this,"Book was successfuly deleted","",JOptionPane.INFORMATION_MESSAGE);
                 BST.display(BST.root);
             }
         }
@@ -777,11 +814,20 @@ public class BookForm extends javax.swing.JFrame {
         if(radioDISBN.isSelected())
         {
             String b = txtDelete.getText();
+            if(b.matches(".*\\d.*")){
             BST.delete = false;
             BST.DeleteByISBN(BST.root,Long.parseLong(b));
             if(!BST.delete)
-                JOptionPane.showMessageDialog(this,"ISBN \"" +b+ "\"" +" not found");
+                JOptionPane.showMessageDialog(this,"ISBN \"" +b+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(this,"Book was successfuly deleted","",JOptionPane.INFORMATION_MESSAGE);
             BST.display(BST.root);
+            }
+            else
+            {
+                BST.display(BST.root);
+                JOptionPane.showMessageDialog(this,"Invalid ISBN number","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         else
         {
@@ -789,7 +835,9 @@ public class BookForm extends javax.swing.JFrame {
             String t = txtDelete.getText();
             boolean flag = BST.DeleteByName(t,BST.root);
             if(!flag)
-                JOptionPane.showMessageDialog(this,"Book \"" +t+ "\"" +" not found");
+                JOptionPane.showMessageDialog(this,"Book \"" +t+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(this,"Book was successfuly deleted","",JOptionPane.INFORMATION_MESSAGE);
             BST.display(BST.root);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -820,15 +868,21 @@ public class BookForm extends javax.swing.JFrame {
             String y = txtPSearch.getText();
             if(radioPISBN.isSelected())
             {
+                if(y.matches(".*\\d.*")){
                 BST.find = null;
                 Node n = BST.SearchByISBN(BST.root,Long.parseLong(y));
                 if(n == null)
                 {
-                    JOptionPane.showMessageDialog(this,"ISBN \"" +y+ "\"" +" not found");
+                    JOptionPane.showMessageDialog(this,"ISBN \"" +y+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
                 }
                 else
                 {
                     FillTable(n.title,n.AuthorFName,n.AuthorLName,n.isbn,n.count);
+                }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this,"Invalid ISBN number","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
             else
@@ -838,7 +892,7 @@ public class BookForm extends javax.swing.JFrame {
                 Node n = BST.SearchByName(y,BST.root);
                 if(n == null)
                 {
-                    JOptionPane.showMessageDialog(this,"Book \"" +y+ "\"" +" not found");
+                    JOptionPane.showMessageDialog(this,"Book \"" +y+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
                 }
                 else
                 {
@@ -857,15 +911,21 @@ public class BookForm extends javax.swing.JFrame {
         String y = txtPSearch.getText();
         if(radioPISBN.isSelected())
         {
+            if(y.matches(".*\\d.*")){
             BST.find = null;
             Node n = BST.SearchByISBN(BST.root,Long.parseLong(y));
             if(n == null)
             {
-                JOptionPane.showMessageDialog(this,"ISBN \"" +y+ "\"" +" not found");
+                JOptionPane.showMessageDialog(this,"ISBN \"" +y+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
+            }
+            else
+            {               
+                FillTable(n.title,n.AuthorFName,n.AuthorLName,n.isbn,n.count);
+            }
             }
             else
             {
-                FillTable(n.title,n.AuthorFName,n.AuthorLName,n.isbn,n.count);
+                JOptionPane.showMessageDialog(this,"Invalid ISBN number","Error",JOptionPane.ERROR_MESSAGE);
             }
         }
         else
@@ -875,7 +935,7 @@ public class BookForm extends javax.swing.JFrame {
             Node n = BST.SearchByName(y,BST.root);
             if(n == null)
             {
-                JOptionPane.showMessageDialog(this,"Book \"" +y+ "\"" +" not found");
+                JOptionPane.showMessageDialog(this,"Book \"" +y+ "\"" +" not found","",JOptionPane.WARNING_MESSAGE);
             }
             else
             {
@@ -899,26 +959,26 @@ public class BookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_radioPISBNStateChanged
 
     private void btnKeySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeySearchActionPerformed
-        DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
-        while(dm.getRowCount() > 0)
-        {
-            dm.removeRow(0);
-        }
-        BST.SearchinOrderTraverse(BST.root,txtKey.getText());
+        SearchByKeyWord();
     }//GEN-LAST:event_btnKeySearchActionPerformed
 
     private void txtKeyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyKeyPressed
         char x = evt.getKeyChar();
         if(x == '\n')
         {
-            DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
-            while(dm.getRowCount() > 0)
-            {
-                dm.removeRow(0);
-            }
-            BST.SearchinOrderTraverse(BST.root,txtKey.getText());
+            SearchByKeyWord();
         }
     }//GEN-LAST:event_txtKeyKeyPressed
+    
+    public void SearchByKeyWord()
+    {
+        DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
+        while(dm.getRowCount() > 0)
+        {
+            dm.removeRow(0);
+        }
+        BST.SearchinOrderTraverse(BST.root,txtKey.getText());
+    }
     
     public void FillTable(String t,String f,String l,long b,int count)
     {
@@ -932,14 +992,9 @@ public class BookForm extends javax.swing.JFrame {
         newRow.add(count);
         defaultModel.addRow(newRow);
     }
-    
+        
     private void btnTreeClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTreeClearActionPerformed
-        BST.root = null;
-        DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
-        while(dm.getRowCount() > 0)
-        {
-            dm.removeRow(0);
-        }
+        
     }//GEN-LAST:event_btnTreeClearActionPerformed
 
     /**
@@ -975,7 +1030,7 @@ public class BookForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BookForm().setVisible(true);
+                new BookForm().setVisible(true);              
             }
         });
     }
@@ -1034,3 +1089,5 @@ public class BookForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
 }
+
+
