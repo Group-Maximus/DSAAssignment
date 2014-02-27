@@ -68,6 +68,7 @@ public class BST {
             return ;
         }
         display(n.left);
+        parentFrame.FillTable(n.title,n.AuthorFName,n.AuthorLName,n.isbn, n.count);
         display(n.right);
 
     }
@@ -247,13 +248,13 @@ public class BST {
         if(parent != null){
             SearchinOrderTraverse(parent.left,s);
             if(parent.title.contains(s))
-             //   parentFrame.FillTable(parent.title,parent.AuthorFName,parent.AuthorLName,parent.isbn,parent.count);
+                parentFrame.FillTable(parent.title,parent.AuthorFName,parent.AuthorLName,parent.isbn,parent.count);
             SearchinOrderTraverse(parent.right,s);
         }            
     }
      
      static boolean delete = false;
-     static boolean DeleteByISBN(Node parent,long s){
+     static void DeleteByISBN(Node parent,long s){
         if(parent != null){
             DeleteByISBN(parent.left,s);
             if(parent.isbn == s)
@@ -263,7 +264,6 @@ public class BST {
             }
             DeleteByISBN(parent.right,s);
         }
-        return delete;
      }
 	 
 	 static Node SearchByISBN(Node parent,long s){
