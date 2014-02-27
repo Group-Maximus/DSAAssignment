@@ -694,7 +694,40 @@ public class BookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnLoadBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadBooksActionPerformed
-        
+        try {       
+        String path = new File("BookShop.xml").getAbsolutePath();
+	File fXmlFile = new File(path);
+	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	Document doc = dBuilder.parse(fXmlFile);
+	
+	doc.getDocumentElement().normalize();
+ 
+	NodeList nList = doc.getElementsByTagName("Book");
+	for (int temp = 0; temp < nList.getLength(); temp++) {
+ 
+		org.w3c.dom.Node nNode = nList.item(temp); 
+		if (nNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE) {
+                    
+			Element eElement = (Element) nNode;
+			
+			String t = eElement.getElementsByTagName("Title").item(0).getTextContent();
+			String fn = eElement.getElementsByTagName("Fname").item(0).getTextContent();
+			String ln = eElement.getElementsByTagName("Lname").item(0).getTextContent();
+                        String b = eElement.getElementsByTagName("Isbn").item(0).getTextContent();
+                        long x = Long.parseLong(b);
+                        DefaultTableModel dm = (DefaultTableModel) tableBooks.getModel();
+                        while(dm.getRowCount() > 0)
+                        {
+                            dm.removeRow(0);
+                        }
+                        BST.LoadBooks(t,fn,ln,x,BST.root);
+		}
+        }
+        JOptionPane.showMessageDialog(this,"All books were successfuly added");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnLoadBooksActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

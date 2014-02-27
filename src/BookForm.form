@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
@@ -58,7 +58,6 @@
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="TreeMenu"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -312,11 +311,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\CreativeD\Downloads\1393196706_emblem-library.png"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -537,11 +531,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\CS\Data Structures and Algorithms\Assignment Presentation\30Recycle.PNG"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -664,11 +653,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\CS\Data Structures and Algorithms\Assignment Presentation\30Search.PNG"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -740,11 +724,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\CS\Data Structures and Algorithms\Assignment Presentation\30KeySearch.PNG"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -754,17 +733,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="TeamIcon">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\CS\Data Structures and Algorithms\Assignment Presentation\BlackMax.gif"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnTreeClear">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Graphics\Convert\25BinaryTree.png"/>
-        </Property>
         <Property name="name" type="java.lang.String" value="btnAddBook" noResource="true"/>
       </Properties>
       <Events>
