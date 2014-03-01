@@ -6,8 +6,6 @@ public class BST {
     
     static Node n, root;
     static Node find;
-    static StringBuilder stringBuilder = new StringBuilder();
-    static String output = "";
     static BookForm parentFrame;
     
     static void insert(String t,String af,String al,long b, Node n) {
@@ -183,7 +181,7 @@ public class BST {
             }
             else
             {
-                Node replacer = FindReplacer(d);
+                Node replacer = FindReplacer(d.left);
                 if(d == root)
                     root = replacer;
                 else if(isLeft)
